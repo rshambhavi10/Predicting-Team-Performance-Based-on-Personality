@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+ <div class="login" >
+	<h1>Team Performance Prediction</h1>
+<p>Link for the MBTI website <a href="https://www.16personalities.com/free-personality-test" style="color:yellow">MBTI</a></p>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    
+<form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="team_size" placeholder="Team Size" required="required" />
+<br>
+<p>Team Member 1 details</p>
+        <input type="text" name="gender1" placeholder="Gender" required="required" />
+		<input type="text" name="ei1" placeholder="Extrovert/Introvert" required="required" />
+<input type="text" name="si1" placeholder="Sensing/Intuition" required="required" />
+        <input type="text" name="tf1" placeholder="Thinking/Feeling" required="required" />
+<input type="text" name="jp1" placeholder="Judging/Perceiving" required="required" />
+
+ <label for="coop1">Team Cooperation (between 0 and 100):</label>
+  <input type="range" id="coop1" name="coop1" min="0" max="100">
+		
+ <label for="free1">Freedom (between 0 and 100):</label>
+  <input type="range" id="free1" name="free1" min="0" max="100">
+
+ <label for="app1">Team members appreciate and support each other (between 0 and 100):</label>
+  <input type="range" id="app1" name="app1" min="0" max="100">
+
+ <label for="equal1">Equal Contribution (between 0 and 100):</label>
+  <input type="range" id="equal1" name="equal1" min="0" max="100">
+  
+ <br>
+<br>
+
+
+<p>Team Member 2 details</p>
+              <input type="text" name="gender2" placeholder="Gender" required="required" />
+		<input type="text" name="ei2" placeholder="Extrovert/Introvert" required="required" />
+<input type="text" name="si2" placeholder="Sensing/Intuition" required="required" />
+        <input type="text" name="tf2" placeholder="Thinking/Feeling" required="required" />
+<input type="text" name="jp2" placeholder="Judging/Perceiving" required="required" />
+
+ <label for="coop2">Team Cooperation (between 0 and 100):</label>
+  <input type="range" id="coop" name="coop2" min="0" max="100">
+		
+ <label for="free2">Freedom (between 0 and 100):</label>
+  <input type="range" id="free2" name="free2" min="0" max="100">
+
+ <label for="app2">Team members appreciate and support each other (between 0 and 100):</label>
+  <input type="range" id="app2" name="app2" min="0" max="100">
+
+ <label for="equal2">Equal Contribution (between 0 and 100):</label>
+  <input type="range" id="equal2" name="equal2" min="0" max="100">
+  
+ <br>
+<br>
+
+
+<p>Team Member 3 details</p>
+              <input type="text" name="gender3" placeholder="Gender" required="required" />
+		<input type="text" name="ei3" placeholder="Extrovert/Introvert" required="required" />
+<input type="text" name="si3" placeholder="Sensing/Intuition" required="required" />
+        <input type="text" name="tf3" placeholder="Thinking/Feeling" required="required" />
+<input type="text" name="jp3" placeholder="Judging/Perceiving" required="required" />
+
+ <label for="coop3">Team Cooperation (between 0 and 100):</label>
+  <input type="range" id="coop3" name="coop3" min="0" max="100">
+		
+ <label for="free3">Freedom (between 0 and 100):</label>
+  <input type="range" id="free3" name="free3" min="0" max="100">
+
+ <label for="app3">Team members appreciate and support each other (between 0 and 100):</label>
+  <input type="range" id="app3" name="app3" min="0" max="100">
+
+ <label for="equal3">Equal Contribution (between 0 and 100):</label>
+  <input type="range" id="equal3" name="equal3" min="0" max="100">
+  
+  
+ <br>
+<br>
+
+
+
+
+<p>Team Member 4 details</p>
+              <input type="text" name="gender4" placeholder="Gender"  />
+		<input type="text" name="ei4" placeholder="Extrovert/Introvert"  />
+<input type="text" name="si4" placeholder="Sensing/Intuition" />
+        <input type="text" name="tf4" placeholder="Thinking/Feeling"  />
+<input type="text" name="jp4" placeholder="Judging/Perceiving"  />
+
+ <label for="coop4">Team Cooperation (between 0 and 100):</label>
+  <input type="range" id="coop4" name="coop4" min="0" max="100">
+		
+ <label for="free4">Freedom (between 0 and 100):</label>
+  <input type="range" id="free4" name="free4" min="0" max="100">
+
+ <label for="app4">Team members appreciate and support each other (between 0 and 100):</label>
+  <input type="range" id="app4" name="app4" min="0" max="100">
+
+ <label for="equal4">Equal Contribution (between 0 and 100):</label>
+  <input type="range" id="equal4" name="equal4" min="0" max="100">
+  
+   <br>
+   <br>
+
+<button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+</br>
+</br>
+
+ </div>
+
+
+</body>
+</html>
